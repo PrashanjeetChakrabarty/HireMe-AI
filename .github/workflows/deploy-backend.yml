@@ -1,0 +1,56 @@
+name: Deploy backend
+
+# Runs when backend code changes on main, or by hand from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'BackendAPI/**'
+      - 'BackendAPI.Core/**'
+      - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch:
+
+# Never run two deploys at the same time.
+concurrency:
+  group: deploy-backend
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the deploy settings
+        run: |
+          if [ -z "${{ vars.AZURE_WEBAPP_NAME }}" ] || [ -z "${{ vars.API_URL }}" ]; then
+            echo "Set the repository variables AZURE_WEBAPP_NAME and API_URL (Settings, Secrets and variables, Actions, Variables)."
+            exit 1
+          fi
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Run the tests
+        run: dotnet test BackendAPI.Tests/BackendAPI.Tests.csproj
+
+      - name: Publish the API
+        run: dotnet publish BackendAPI/BackendAPI.csproj -c Release -o ./publish
+
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ vars.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./publish
+
+      - name: Check that the live API answers
+        run: |
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 ${{ vars.API_URL }}/api/Roles/register-options)
+            echo "try $i: HTTP $code"
+            if [ "$code" = "200" ]; then exit 0; fi
+            sleep 20
+          done
+          exit 1

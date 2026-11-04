@@ -1,0 +1,35 @@
+name: CI
+
+# Runs the tests on every push to main and on every pull request.
+# It only tests and builds; it does not deploy anything.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Run backend tests
+        run: dotnet test BackendAPI.Tests --configuration Release
+
+  frontend-tests-and-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Frontend/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build

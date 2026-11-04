@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<style>
+:root{--ca:#14383F;--cb:#04161A;--ra:#F3DAA0;--rb:#A67C3A;--aa:#FFFFFF;--ab:#D9D1BC}
+@media (prefers-color-scheme: light){:root{--ca:#FFFFFF;--cb:#E4EBF8;--ra:#DDBA70;--rb:#9C7330;--aa:#26397A;--ab:#0B1330}}
+</style>
+<defs>
+<linearGradient id="c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--ca)"/><stop offset="1" style="stop-color:var(--cb)"/></linearGradient>
+<linearGradient id="r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--ra)"/><stop offset="1" style="stop-color:var(--rb)"/></linearGradient>
+<linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="360"><stop offset="0" style="stop-color:var(--aa)"/><stop offset="1" style="stop-color:var(--ab)"/></linearGradient>
+<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="110" y1="70" x2="270" y2="360"><stop offset="0" stop-color="#F8E5B3"/><stop offset="0.5" stop-color="#D7AD5F"/><stop offset="1" stop-color="#9A7030"/></linearGradient>
+</defs>
+<rect width="64" height="64" rx="14.4" fill="url(#c)"/>
+<rect x="0.8" y="0.8" width="62.4" height="62.4" rx="13.6" fill="none" stroke="url(#r)" stroke-width="1.6"/>
+<g transform="translate(9.60 11.25) scale(0.11979)">
+<path d="M52.5 352V142A134 134 0 0 1 320.5 142V352" fill="none" stroke="url(#a)" stroke-width="26"/>
+<path d="M6.5 352H367.5" fill="none" stroke="url(#a)" stroke-width="24" stroke-linecap="round"/>
+<path d="M101.5 358V167A85.5 85.5 0 0 1 272.5 167V358" fill="none" stroke="url(#g)" stroke-width="23"/>
+<circle cx="187" cy="182.5" r="38" fill="url(#g)"/>
+<path d="M129 353A58 112 0 0 1 245 353Z" fill="url(#g)"/>
+</g></svg>

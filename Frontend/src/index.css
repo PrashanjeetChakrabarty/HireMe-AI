@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+@import "./styles/landing.css";
+@import "./styles/app.css";
+
+/*
+  The old page names (paper, ink, line, stamp, signal, muted) now point at the theme variables,
+  so the login and register pages follow the light and dark theme without any code change.
+*/
+@theme inline {
+  --color-paper: var(--bg);
+  --color-ink: var(--ink);
+  --color-line: var(--line-2);
+  --color-stamp: var(--warn);
+  --color-signal: var(--mint);
+  --color-muted: var(--muted);
+
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Inter", ui-monospace, monospace;
+}

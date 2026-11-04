@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /resumes
+Disallow: /jobs
+Disallow: /my-activity
+Disallow: /my-jobs
+Disallow: /analytics
+Disallow: /activity-feed
+Disallow: /profile
+Disallow: /verify-otp
+Disallow: /forgot-password
+Disallow: /reset-password
+
+Sitemap: https://hireme-ai-hiring.vercel.app/sitemap.xml

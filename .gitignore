@@ -1,0 +1,41 @@
+# Python
+AiService/venv/
+AiService/__pycache__/
+*.pyc
+
+# .NET
+bin/
+obj/
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+
+#.env
+.env
+
+# Uploaded resumes (personal data) and database backups must never be committed
+BackendAPI/uploads/
+SQL_server/backups/
+*.bak
+
+# Local-only files
+.vercel/
+.env.local
+.env.*.local
+
+# Secrets and local settings (the example file is kept)
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.pubxml
+*.publishsettings
+appsettings.Local.json
+secrets.json
+
+# Your own service addresses for the warmup script
+scripts/warmup.env

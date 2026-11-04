@@ -1,0 +1,126 @@
+/* ============ Design tokens (light is the base, dark follows the system or the toggle) ============ */
+:root {
+  --bg: #f3f5ff;
+  --bg-2: #ffffff;
+  --ink: #0a0f2c;
+  --ink-2: #2a3157;
+  --muted: #566086;
+  --line: rgba(10, 15, 44, 0.12);
+  --line-2: rgba(10, 15, 44, 0.2);
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-strong: rgba(255, 255, 255, 0.94);
+  --plate-1: #ffffff;
+  --plate-2: #e8edff;
+  --sky: #0e7fc8;
+  --accent-text: #0a639f;
+  --violet: #5b44f2;
+  --pink: #d6338f;
+  --mint: #087a62;
+  --danger: #c4224f;
+  --c-muted: #566086;
+  --c-grid: rgba(10, 15, 44, 0.12);
+  --c-bg2: #ffffff;
+  --warn: #b25b00;
+  --grad: linear-gradient(120deg, #0e7fc8 0%, #5b44f2 55%, #d6338f 100%);
+  --btn-grad: linear-gradient(120deg, #0b6cb0, #4b36e0);
+  --on-btn: #ffffff;
+  --on-grad: #ffffff;
+  --shadow: 0 30px 60px -28px rgba(30, 40, 120, 0.35);
+  --glow: rgba(27, 155, 224, 0.38);
+  --grid: rgba(10, 15, 44, 0.09);
+  --nav-bg: rgba(243, 245, 255, 0.93);
+  --blob-a: rgba(14, 127, 200, 0.28);
+  --blob-b: rgba(91, 68, 242, 0.24);
+  --blob-c: rgba(214, 51, 143, 0.16);
+  --c-ink: #0a0f2c;
+  --c-accent: #0e7fc8;
+  --c-accent2: #5b44f2;
+  --c-ribbon: #5b44f2;
+  /* One font family for the whole site: Inter. The three names stay, so every style that uses them keeps working. */
+  --f-display: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #061317;
+    --bg-2: #0c2027;
+    --ink: #e6f4f6;
+    --ink-2: #bcd8dc;
+    --muted: #8fb0b8;
+    --line: rgba(176, 226, 232, 0.12);
+    --line-2: rgba(176, 226, 232, 0.2);
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-strong: rgba(255, 255, 255, 0.09);
+    --plate-1: #0f2c35;
+    --plate-2: #081a20;
+    --sky: #2dd4bf;
+    --accent-text: #5eead4;
+    --violet: #38bdf8;
+    --pink: #7dd3fc;
+    --mint: #34d399;
+    --danger: #ff8a8a;
+    --c-muted: #8fb0b8;
+    --c-grid: rgba(176, 226, 232, 0.14);
+    --c-bg2: #0c2027;
+    --warn: #fbbf24;
+    --grad: linear-gradient(120deg, #2dd4bf 0%, #38bdf8 55%, #7dd3fc 100%);
+    --btn-grad: linear-gradient(120deg, #2dd4bf, #38bdf8);
+    --on-btn: #04141a;
+    --on-grad: #04141a;
+    --shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.8);
+    --glow: rgba(45, 212, 191, 0.38);
+    --grid: rgba(176, 226, 232, 0.07);
+    --nav-bg: rgba(6, 19, 23, 0.9);
+    --blob-a: rgba(45, 212, 191, 0.3);
+    --blob-b: rgba(56, 189, 248, 0.24);
+    --blob-c: rgba(125, 211, 252, 0.14);
+    --c-ink: #e6f4f6;
+    --c-accent: #2dd4bf;
+    --c-accent2: #38bdf8;
+    --c-ribbon: #0f766e;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #061317;
+  --bg-2: #0c2027;
+  --ink: #e6f4f6;
+  --ink-2: #bcd8dc;
+  --muted: #8fb0b8;
+  --line: rgba(176, 226, 232, 0.12);
+  --line-2: rgba(176, 226, 232, 0.2);
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-strong: rgba(255, 255, 255, 0.09);
+  --plate-1: #0f2c35;
+  --plate-2: #081a20;
+  --sky: #2dd4bf;
+  --accent-text: #5eead4;
+  --violet: #38bdf8;
+  --pink: #7dd3fc;
+  --mint: #34d399;
+  --danger: #ff8a8a;
+  --c-muted: #8fb0b8;
+  --c-grid: rgba(176, 226, 232, 0.14);
+  --c-bg2: #0c2027;
+  --warn: #fbbf24;
+  --grad: linear-gradient(120deg, #2dd4bf 0%, #38bdf8 55%, #7dd3fc 100%);
+  --btn-grad: linear-gradient(120deg, #2dd4bf, #38bdf8);
+  --on-btn: #04141a;
+  --on-grad: #04141a;
+  --shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.8);
+  --glow: rgba(45, 212, 191, 0.38);
+  --grid: rgba(176, 226, 232, 0.07);
+  --nav-bg: rgba(6, 19, 23, 0.9);
+  --blob-a: rgba(45, 212, 191, 0.3);
+  --blob-b: rgba(56, 189, 248, 0.24);
+  --blob-c: rgba(125, 211, 252, 0.14);
+  --c-ink: #e6f4f6;
+  --c-accent: #2dd4bf;
+  --c-accent2: #38bdf8;
+  --c-ribbon: #0f766e;
+  color-scheme: dark;
+}
